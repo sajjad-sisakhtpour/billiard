@@ -1,3 +1,8 @@
+//////////////load assets//////////
+
+let background = new Image();
+background.src = "./assets/sprites/background.png";
+
 /////////////////vector///////////////////
 
 function Vector(x = 0, y = 0) {
@@ -35,7 +40,9 @@ let canvas = new Canvas2D();
 
 function GameWorld() {}
 
-GameWorld.prototype.draw = function () {};
+GameWorld.prototype.draw = function () {
+  canvas.drawImage(background);
+};
 
 GameWorld.prototype.update = function () {};
 
