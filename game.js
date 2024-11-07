@@ -48,6 +48,10 @@ Vector.prototype.addTo = function (vector) {
   this.y += vector.y;
 };
 
+Vector.prototype.addTo = function (value) {
+  return new vector(this.x * value, this.y * value);
+};
+
 //////////////////handling mouse/////////
 
 function ButtonState() {
