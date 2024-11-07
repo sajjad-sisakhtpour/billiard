@@ -116,10 +116,13 @@ let canvas = new Canvas2D();
 
 ////////////////////ball/////////////
 
-function Ball() {}
+function Ball() {
+  this.position = new Vector(413, 413);
+  this.velocity = new Vector();
+}
 
 Ball.prototype.draw = function () {
-  canvas.drawImage(sprites.ball, new Vector(413, 413), BALL_ORIGIN);
+  canvas.drawImage(sprites.ball, this.position, BALL_ORIGIN);
 };
 
 Ball.prototype.update = function () {};
