@@ -40,6 +40,10 @@ function Vector(x = 0, y = 0) {
 
 //////////////////handling mouse/////////
 
+function ButtonState() {
+  this.down = false;
+}
+
 function MouseHandler() {
   this.position = new Vector();
 
