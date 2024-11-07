@@ -1,6 +1,7 @@
 BALL_ORIGIN = new Vector(25, 25);
 STICK_ORIGIN = new Vector(970, 11);
 SHOOT_ORIGIN = new Vector(950, 11);
+DELTA = 2 / 1000;
 
 //////////////load assets//////////
 
@@ -135,7 +136,7 @@ Ball.prototype.draw = function () {
 };
 
 Ball.prototype.update = function () {
-  this.position.addTo(this.velocity);
+  this.position.addTo(this.velocity.mult(DELTA));
 
   this.velocity = this.velocity.mult(0.98);
 };
