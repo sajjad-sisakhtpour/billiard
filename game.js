@@ -43,6 +43,11 @@ Vector.prototype.copy = function () {
   return new Vector(this.x, this.y);
 };
 
+Vector.prototype.addTo = function (vector) {
+  this.x += vector.x;
+  this.y += vector.y;
+};
+
 //////////////////handling mouse/////////
 
 function ButtonState() {
