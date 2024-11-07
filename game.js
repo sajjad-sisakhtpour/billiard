@@ -4,15 +4,21 @@ let sprites = {};
 let assetsStillLoading = 0;
 
 function loadSprites(fileName) {
+  assetsStillLoading++;
   let spriteImage = new Image();
   spriteImage.src = "./assets/sprites/" + fileName;
+  assetsStillLoading--;
 
   return spriteImage;
 }
 
-sprites.background = loadSprites("background.png");
-sprites.ball = loadSprites("ball.png");
-sprites.stick = loadSprites("stick.png");
+function loadAssets() {
+  sprites.background = loadSprites("background.png");
+  sprites.ball = loadSprites("ball.png");
+  sprites.stick = loadSprites("stick.png");
+}
+
+loadAssets();
 
 /////////////////vector///////////////////
 
