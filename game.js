@@ -41,12 +41,12 @@ function Vector(x = 0, y = 0) {
 //////////////////handling mouse/////////
 
 function MouseHandler() {
-  this.left = new Vector();
+  this.position = new Vector();
 }
 
 document.addEventListener("mousemove", function handleMouseMove(e) {
-  Mouse.left.x = e.pageX;
-  Mouse.left.y = e.pageY;
+  Mouse.position.x = e.pageX;
+  Mouse.position.y = e.pageY;
 });
 
 let Mouse = new MouseHandler();
@@ -103,8 +103,8 @@ Stick.prototype.update = function () {
 };
 
 Stick.prototype.updateRotation = function () {
-  let oposite = Mouse.left.y - this.position.y;
-  let adjacent = Mouse.left.x - this.position.x;
+  let oposite = Mouse.position.y - this.position.y;
+  let adjacent = Mouse.position.x - this.position.x;
 
   this.rotation = Math.atan2(oposite, adjacent);
 };
