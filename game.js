@@ -61,12 +61,25 @@ Canvas2D.prototype.drawImage = function (
 
 let canvas = new Canvas2D();
 
+////////////////////ball/////////////
+
+function Ball() {}
+
+Ball.prototype.draw = function () {
+  canvas.drawImage(sprites.ball, new Vector(413, 413));
+};
+
+Ball.prototype.update = function () {};
+
 //////////////////game world//////////////////
 
-function GameWorld() {}
+function GameWorld() {
+  this.whiteBall = new Ball();
+}
 
 GameWorld.prototype.draw = function () {
   canvas.drawImage(sprites.background);
+  this.whiteBall.draw();
 };
 
 GameWorld.prototype.update = function () {};
