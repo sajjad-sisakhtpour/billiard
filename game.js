@@ -53,6 +53,10 @@ Vector.prototype.mult = function (value) {
   return new Vector(this.x * value, this.y * value);
 };
 
+Vector.prototype.length = function () {
+  return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
+};
+
 //////////////////handling mouse/////////
 
 function ButtonState() {
