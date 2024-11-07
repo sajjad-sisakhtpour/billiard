@@ -47,6 +47,10 @@ function ButtonState() {
 function MouseHandler() {
   this.position = new Vector();
 
+  this.left = new ButtonState();
+  this.middle = new ButtonState();
+  this.right = new ButtonState();
+
   document.addEventListener("mousemove", handleMouseMove);
   document.addEventListener("mousedown", handleMouseDown);
   document.addEventListener("mouseup", handleMouseUp);
@@ -57,9 +61,25 @@ function handleMouseMove(e) {
   Mouse.position.y = e.pageY;
 }
 
-function handleMouseDown(e) {}
+function handleMouseDown(e) {
+  if ((e.which = 1)) {
+    Mouse.left.down = true;
+  } else if ((e.which = 2)) {
+    Mouse.left.down = true;
+  } else if ((e.which = 3)) {
+    Mouse.left.down = true;
+  }
+}
 
-function handleMouseUp(e) {}
+function handleMouseUp(e) {
+  if ((e.which = 1)) {
+    Mouse.left.down = false;
+  } else if ((e.which = 2)) {
+    Mouse.left.down = false;
+  } else if ((e.which = 3)) {
+    Mouse.left.down = false;
+  }
+}
 
 let Mouse = new MouseHandler();
 
