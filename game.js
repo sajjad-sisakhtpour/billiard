@@ -1,3 +1,6 @@
+BALL_ORIGIN = new Vector(25, 25);
+STICK_ORIGIN = new Vector(970, 11);
+
 //////////////load assets//////////
 
 let sprites = {};
@@ -66,7 +69,7 @@ let canvas = new Canvas2D();
 function Ball() {}
 
 Ball.prototype.draw = function () {
-  canvas.drawImage(sprites.ball, new Vector(413, 413), new Vector(25, 25));
+  canvas.drawImage(sprites.ball, new Vector(413, 413), BALL_ORIGIN);
 };
 
 Ball.prototype.update = function () {};
@@ -76,7 +79,7 @@ Ball.prototype.update = function () {};
 function Stick() {}
 
 Stick.prototype.draw = function () {
-  canvas.drawImage(sprites.stick, new Vector(413, 413), new Vector(970, 11));
+  canvas.drawImage(sprites.stick, new Vector(413, 413),STICK_ORIGIN);
 };
 
 Stick.prototype.update = function () {};
