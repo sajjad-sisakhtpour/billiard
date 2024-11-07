@@ -31,9 +31,22 @@ Canvas2D.prototype.drawImage = function (
 
 let canvas = new Canvas2D();
 
-//////////////////////////////////////
+//////////////////game world//////////////////
+
+function GameWorld() {}
+
+GameWorld.prototype.draw = function () {};
+
+GameWorld.prototype.update = function () {};
+
+let gameWorld = new GameWorld();
+
+/////////////////////// animation///////////////
 
 function animate() {
+  canvas.clear();
+  gameWorld.draw();
+  gameWorld.update();
   requestAnimationFrame(animate);
 }
 
