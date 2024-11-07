@@ -1,3 +1,10 @@
+/////////////////vector///////////////////
+
+function Vector(x = 0, y = 0) {
+  this.x = x;
+  this.y = y;
+}
+
 /////////////////canvas////////////////////
 
 function Canvas2D() {
@@ -11,8 +18,8 @@ Canvas2D.prototype.clear = function () {
 
 Canvas2D.prototype.drawImage = function (
   image,
-  position = { x: 0, y: 0 },
-  origin = { x: 0, y: 0 },
+  position = new Vector(),
+  origin = new Vector(),
   rotation = 0
 ) {
   this.ctx.save();
