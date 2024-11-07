@@ -32,3 +32,9 @@ Canvas2D.prototype.drawImage = function (
 let canvas = new Canvas2D();
 
 //////////////////////////////////////
+
+function animate() {
+  requestAnimationFrame(animate);
+}
+
+animate();
