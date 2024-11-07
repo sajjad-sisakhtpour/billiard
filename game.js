@@ -71,15 +71,27 @@ Ball.prototype.draw = function () {
 
 Ball.prototype.update = function () {};
 
+////////////////////stick/////////////
+
+function Stick() {}
+
+Stick.prototype.draw = function () {
+  canvas.drawImage(sprites.stick, new Vector(413, 413));
+};
+
+Stick.prototype.update = function () {};
+
 //////////////////game world//////////////////
 
 function GameWorld() {
   this.whiteBall = new Ball();
+  this.stick = new Stick();
 }
 
 GameWorld.prototype.draw = function () {
   canvas.drawImage(sprites.background);
   this.whiteBall.draw();
+  this.stick.draw();
 };
 
 GameWorld.prototype.update = function () {};
