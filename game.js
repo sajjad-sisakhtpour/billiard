@@ -49,7 +49,7 @@ Vector.prototype.addTo = function (vector) {
 };
 
 Vector.prototype.mult = function (value) {
-  return new vector(this.x * value, this.y * value);
+  return new Vector(this.x * value, this.y * value);
 };
 
 //////////////////handling mouse/////////
@@ -141,7 +141,10 @@ Ball.prototype.update = function () {
 };
 
 Ball.prototype.shoot = function (power, rotation) {
-  console.log(power, rotation);
+  this.velocity = new Vector(
+    power * Math.cos(rotation),
+    power * Math.sin(rotation)
+  );
 };
 
 ////////////////////stick/////////////
@@ -201,6 +204,7 @@ GameWorld.prototype.draw = function () {
 
 GameWorld.prototype.update = function () {
   this.stick.update();
+  this.whiteBall.update();
 };
 
 let gameWorld = new GameWorld();
