@@ -48,7 +48,7 @@ Vector.prototype.addTo = function (vector) {
   this.y += vector.y;
 };
 
-Vector.prototype.addTo = function (value) {
+Vector.prototype.mult = function (value) {
   return new vector(this.x * value, this.y * value);
 };
 
@@ -136,6 +136,8 @@ Ball.prototype.draw = function () {
 
 Ball.prototype.update = function () {
   this.position.addTo(this.velocity);
+
+  this.velocity = this.velocity.mult(0.98);
 };
 
 Ball.prototype.shoot = function (power, rotation) {
