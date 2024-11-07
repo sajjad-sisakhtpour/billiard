@@ -89,13 +89,25 @@ Ball.prototype.update = function () {};
 
 ////////////////////stick/////////////
 
-function Stick() {}
+function Stick() {
+  this.rotation = 0;
+  this.position = new Vector(413, 413);
+}
 
 Stick.prototype.draw = function () {
-  canvas.drawImage(sprites.stick, new Vector(413, 413), STICK_ORIGIN);
+  canvas.drawImage(sprites.stick, this.position, STICK_ORIGIN, this.rotation);
 };
 
-Stick.prototype.update = function () {};
+Stick.prototype.update = function () {
+  this.updateRotation();
+};
+
+Stick.prototype.updateRotation = function () {
+  let oposite = Mouse.left.y - this.position.y;
+  let adjacent = Mouse.left.x - this.position.x;
+
+  this.rotation = Math.atan2(oposite, adjacent);
+};
 
 //////////////////game world//////////////////
 
@@ -110,7 +122,9 @@ GameWorld.prototype.draw = function () {
   this.stick.draw();
 };
 
-GameWorld.prototype.update = function () {};
+GameWorld.prototype.update = function () {
+  this.stick.update();
+};
 
 let gameWorld = new GameWorld();
 
