@@ -12,13 +12,17 @@ function loadSprites(fileName) {
   return spriteImage;
 }
 
-function loadAssets() {
+function loadAssets(callBack) {
   sprites.background = loadSprites("background.png");
   sprites.ball = loadSprites("ball.png");
   sprites.stick = loadSprites("stick.png");
-}
 
-loadAssets();
+  if (assetsStillLoading) {
+    requestAnimationFrame(loadAssets.bind(this, callBack));
+  } else {
+    callBack();
+  }
+}
 
 /////////////////vector///////////////////
 
@@ -74,4 +78,4 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-animate();
+loadAssets(animate);
