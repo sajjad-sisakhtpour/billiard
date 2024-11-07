@@ -121,11 +121,12 @@ Ball.prototype.update = function () {};
 
 ////////////////////stick/////////////
 
-function Stick() {
+function Stick(onShoot) {
   this.rotation = 0;
   this.position = new Vector(413, 413);
   this.origin = STICK_ORIGIN;
   this.power = 0;
+  this.onShoot = onShoot;
 }
 
 Stick.prototype.draw = function () {
@@ -137,6 +138,8 @@ Stick.prototype.update = function () {
 
   if (Mouse.left.down) {
     this.increasePower();
+  } else if (this.power > 5) {
+    this.shoot();
   }
 };
 
@@ -150,6 +153,10 @@ Stick.prototype.updateRotation = function () {
 Stick.prototype.increasePower = function () {
   this.origin.x += 5;
   this.power += 100;
+};
+
+Stick.prototype.shoot = function () {
+  this.onShoot(this.power, this.rotation);
 };
 
 //////////////////game world//////////////////
