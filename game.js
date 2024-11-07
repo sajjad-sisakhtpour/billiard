@@ -40,7 +40,16 @@ function Vector(x = 0, y = 0) {
 
 //////////////////handling mouse/////////
 
-document.addEventListener("mousemove", function handleMouseMove(e) {});
+function MouseHandler() {
+  this.left = new Vector();
+}
+
+document.addEventListener("mousemove", function handleMouseMove(e) {
+  Mouse.left.x = e.pageX;
+  Mouse.left.y = e.pageY;
+});
+
+let Mouse = new MouseHandler();
 
 /////////////////canvas////////////////////
 
