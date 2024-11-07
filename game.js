@@ -130,7 +130,9 @@ Ball.prototype.draw = function () {
   canvas.drawImage(sprites.ball, this.position, BALL_ORIGIN);
 };
 
-Ball.prototype.update = function () {};
+Ball.prototype.update = function () {
+  this.position.addTo(this.velocity);
+};
 
 Ball.prototype.shoot = function (power, rotation) {
   console.log(power, rotation);
