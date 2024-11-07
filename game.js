@@ -120,6 +120,10 @@ Ball.prototype.draw = function () {
 
 Ball.prototype.update = function () {};
 
+Ball.prototype.shoot = function (power, rotation) {
+  console.log(power,rotation);
+};
+
 ////////////////////stick/////////////
 
 function Stick(onShoot) {
@@ -166,7 +170,7 @@ Stick.prototype.shoot = function () {
 
 function GameWorld() {
   this.whiteBall = new Ball();
-  this.stick = new Stick();
+  this.stick = new Stick(this.whiteBall.shoot.bind(this.whiteBall));
 }
 
 GameWorld.prototype.draw = function () {
