@@ -11,16 +11,14 @@ Canvas2D.prototype.clear = function () {
 
 Canvas2D.prototype.drawImage = function (
   image,
-  x = 0,
-  y = 0,
-  dx = 0,
-  dy = 0,
+  position = { x: 0, y: 0 },
+  origin = { x: 0, y: 0 },
   rotation = 0
 ) {
   this.ctx.save();
-  this.ctx.translate(x, y);
+  this.ctx.translate(position.x, position.y);
   this.ctx.rotate(rotation);
-  this.ctx.drawImage(image, dx, dy);
+  this.ctx.drawImage(image, -origin.x, -origin.y);
   this.ctx.restore();
 };
 
