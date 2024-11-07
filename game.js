@@ -38,6 +38,10 @@ function Vector(x = 0, y = 0) {
   this.y = y;
 }
 
+//////////////////handling mouse/////////
+
+document.addEventListener("mousemove", function handleMouseMove(e) {});
+
 /////////////////canvas////////////////////
 
 function Canvas2D() {
@@ -79,7 +83,7 @@ Ball.prototype.update = function () {};
 function Stick() {}
 
 Stick.prototype.draw = function () {
-  canvas.drawImage(sprites.stick, new Vector(413, 413),STICK_ORIGIN);
+  canvas.drawImage(sprites.stick, new Vector(413, 413), STICK_ORIGIN);
 };
 
 Stick.prototype.update = function () {};
