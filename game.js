@@ -42,12 +42,20 @@ function Vector(x = 0, y = 0) {
 
 function MouseHandler() {
   this.position = new Vector();
+
+  document.addEventListener("mousemove", handleMouseMove);
+  document.addEventListener("mousedown", handleMouseDown);
+  document.addEventListener("mouseup", handleMouseUp);
 }
 
-document.addEventListener("mousemove", function handleMouseMove(e) {
+function handleMouseMove(e) {
   Mouse.position.x = e.pageX;
   Mouse.position.y = e.pageY;
-});
+}
+
+function handleMouseDown(e) {}
+
+function handleMouseUp(e) {}
 
 let Mouse = new MouseHandler();
 
