@@ -1,5 +1,6 @@
 BALL_ORIGIN = new Vector(25, 25);
 STICK_ORIGIN = new Vector(970, 11);
+SHOOT_ORIGIN = new Vector(950, 11);
 
 //////////////load assets//////////
 
@@ -157,6 +158,8 @@ Stick.prototype.increasePower = function () {
 
 Stick.prototype.shoot = function () {
   this.onShoot(this.power, this.rotation);
+  this.origin = SHOOT_ORIGIN;
+  this.power = 0;
 };
 
 //////////////////game world//////////////////
