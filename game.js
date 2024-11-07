@@ -17,8 +17,12 @@ function loadAssets(callBack) {
   sprites.ball = loadSprites("ball.png");
   sprites.stick = loadSprites("stick.png");
 
+  assetsLoadingLoop(callBack);
+}
+
+function assetsLoadingLoop(callBack) {
   if (assetsStillLoading) {
-    requestAnimationFrame(loadAssets.bind(this, callBack));
+    requestAnimationFrame(assetsLoadingLoop.bind(this, callBack));
   } else {
     callBack();
   }
