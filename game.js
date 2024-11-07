@@ -39,6 +39,10 @@ function Vector(x = 0, y = 0) {
   this.y = y;
 }
 
+Vector.prototype.copy = function () {
+  return new Vector(this.x, this.y);
+};
+
 //////////////////handling mouse/////////
 
 function ButtonState() {
@@ -121,7 +125,7 @@ Ball.prototype.draw = function () {
 Ball.prototype.update = function () {};
 
 Ball.prototype.shoot = function (power, rotation) {
-  console.log(power,rotation);
+  console.log(power, rotation);
 };
 
 ////////////////////stick/////////////
@@ -129,7 +133,7 @@ Ball.prototype.shoot = function (power, rotation) {
 function Stick(onShoot) {
   this.rotation = 0;
   this.position = new Vector(413, 413);
-  this.origin = STICK_ORIGIN;
+  this.origin = STICK_ORIGIN.copy();
   this.power = 0;
   this.onShoot = onShoot;
 }
@@ -162,7 +166,7 @@ Stick.prototype.increasePower = function () {
 
 Stick.prototype.shoot = function () {
   this.onShoot(this.power, this.rotation);
-  this.origin = SHOOT_ORIGIN;
+  this.origin = SHOOT_ORIGIN.copy();
   this.power = 0;
 };
 
