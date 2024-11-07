@@ -1,9 +1,14 @@
 //////////////load assets//////////
 
-let sprites={}
+let sprites = {};
 
-sprites.background = new Image();
-sprites.background.src = "./assets/sprites/background.png";
+function loadSprites(fileName) {
+  let spriteImage = new Image();
+  spriteImage.src = "./assets/sprites/" + fileName;
+  return spriteImage;
+}
+
+sprites.background = loadSprites("background.png");
 
 /////////////////vector///////////////////
 
