@@ -194,6 +194,10 @@ Stick.prototype.shoot = function () {
   this.power = 0;
 };
 
+Stick.prototype.reposition = function (position) {
+  this.position = position.copy();
+};
+
 //////////////////game world//////////////////
 
 function GameWorld() {
@@ -210,6 +214,10 @@ GameWorld.prototype.draw = function () {
 GameWorld.prototype.update = function () {
   this.stick.update();
   this.whiteBall.update();
+
+  if (!this.whiteBall.velocity.length()) {
+    this.stick.reposition(this.whiteBall.position);
+  }
 };
 
 let gameWorld = new GameWorld();
