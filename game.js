@@ -225,7 +225,7 @@ GameWorld.prototype.update = function () {
   this.stick.update();
   this.whiteBall.update();
 
-  if (!this.whiteBall.velocity.length()) {
+  if (!this.whiteBall.moving && !Mouse.left.down) {
     this.stick.reposition(this.whiteBall.position);
   }
 };
