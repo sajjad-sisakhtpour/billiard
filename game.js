@@ -143,6 +143,10 @@ Ball.prototype.update = function () {
   this.position.addTo(this.velocity.mult(DELTA));
 
   this.velocity = this.velocity.mult(0.98);
+
+  if (this.velocity.length() < 5) {
+    this.velocity = new Vector();
+  }
 };
 
 Ball.prototype.shoot = function (power, rotation) {
@@ -196,6 +200,7 @@ Stick.prototype.shoot = function () {
 
 Stick.prototype.reposition = function (position) {
   this.position = position.copy();
+  this.origin = STICK_ORIGIN.copy();
 };
 
 //////////////////game world//////////////////
