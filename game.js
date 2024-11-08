@@ -133,6 +133,7 @@ let canvas = new Canvas2D();
 function Ball() {
   this.position = new Vector(413, 413);
   this.velocity = new Vector();
+  this.moving = false;
 }
 
 Ball.prototype.draw = function () {
@@ -146,10 +147,14 @@ Ball.prototype.update = function () {
 
   if (this.velocity.length() < 5) {
     this.velocity = new Vector();
+
+    this.moving = false;
   }
 };
 
 Ball.prototype.shoot = function (power, rotation) {
+  this.moving = true;
+
   this.velocity = new Vector(
     power * Math.cos(rotation),
     power * Math.sin(rotation)
